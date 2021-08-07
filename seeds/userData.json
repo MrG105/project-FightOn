@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Gabriel",
+        "email": "myemail@realemail.com",
+        "password": "1234password",
+        "gamertag": "MrG105"
+    },
+    {
+        "name": "Sal",
+        "email": "sal@hotmail.com",
+        "password": "password12345",
+        "gamertag": "Salamander1234"
+    },
+    {
+        "name": "Lernantino",
+        "email": "lernantino@gmail.com",
+        "password": "password12345",
+        "gamertag": "lernatinojalapeno"
+    },
+    {
+        "name": "Amiko",
+        "email": "amiko2k20@aol.com",
+        "password": "password12345",
+        "gamertag": "Amiko2k20"
+    }
+]
