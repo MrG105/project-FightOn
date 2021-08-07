@@ -1,5 +1,20 @@
 const router = require("express").Router();
-const { User } = require("../../models/");
+const { User, Game } = require("../../models/");
+
+router.get('/', async (req, res) => {
+    try {
+      // Get all users, sorted by name
+      const userData = await User.findAll({
+            exclude: ['password', 'email'],
+            order: [['name', 'ASC']],
+            include: [{ model: Game }]
+      });
+      res.status(200).json(userData);
+
+    } catch (err) {
+        res.status(500).json(err);
+      }
+    });
 
 router.post('/', async (req, res) => {
     try {
