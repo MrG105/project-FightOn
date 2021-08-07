@@ -12,6 +12,10 @@ Game.init(
             primaryKey: true,
             autoIncrement: true,
         },
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         boxArt: {
             type: DataTypes.STRING,
             allowNull: true,
