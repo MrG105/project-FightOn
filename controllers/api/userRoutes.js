@@ -1,5 +1,7 @@
 const router = require("express").Router();
-const { User, Game } = require("../../models/");
+const { User, Game, UserGames } = require("../../models/");
+// const withAuth = require('../../utils/auth');
+
 
 router.get('/', async (req, res) => {
     try {
@@ -28,6 +30,36 @@ router.post('/', async (req, res) => {
         });
     } catch (err) {
         res.status(400).json(err);
+    }
+});
+
+// add game to user
+// readd auth later
+router.post('/game', async (req, res) => {
+    try {
+        const userData = await UserGames.create({user_id: req.body.user_id, game_id:req.body.game_id});
+        res.status(200).json(userData);        
+    } catch (err) {
+        res.status(400).json(err);
+    }
+});
+
+// get games of user by id
+// currently set to 1,change to session id
+router.get('/games/:id', async (req, res) => {
+    try {
+        const gameData = await UserGames.findAll({
+            where: {
+                user_id: 1
+            }
+        });
+        if (!gameData) {
+            res.status(404).json({ message: 'No Games found with this id!' });
+            return;
+        }
+        res.status(200).json(gameData);        
+    } catch (err) {
+        res.status(500).json(err);
     }
 });
 
