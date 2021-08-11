@@ -25,14 +25,9 @@ const withAuth = require('../../utils/auth');
 // // find all games
 router.get('/', async (req, res) => {
   try {
-    const gameData = await Game.findAll({
-      group: ['Game.id']
-    }); 
-    res.status(200).json(gameData);
-    // res.render("all-games", { 
-    //     layout: 'INSERT SOMETHING HERE JACOB',
-    //     gameData
-    //    });
+    const gameData = await Game.findAll(); 
+    // res.status(200).json(gameData);
+    res.render("allgames", gameData);
   } catch (err) {
     res.status(500).json(err);
     res.redirect('login');

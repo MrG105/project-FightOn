@@ -46,12 +46,15 @@ router.post('/game', async (req, res) => {
 
 // get games of user by id
 // currently set to 1,change to session id
+
 router.get('/games/:id', async (req, res) => {
     try {
-        const gameData = await UserGames.findAll({
+        const gameData = await User.findOne( {
             where: {
-                user_id: 1
-            }
+                    id: 1
+                },
+            include: [{ all: true, nested: true }]
+            
         });
         if (!gameData) {
             res.status(404).json({ message: 'No Games found with this id!' });
@@ -62,6 +65,34 @@ router.get('/games/:id', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+
+// router.get('/games/:id', async (req, res) => {
+//     try {
+//         const gameData = await Game.findAll({
+//             where: {
+//                 user_id: 1
+//             },
+//             include: {
+//                 // model: UserGames,
+//                 include: [{model: User, through: UserGames}]
+
+//             }
+
+//             // include: [
+//             //     Game, User
+//             // ]
+//             // console.log('!.!.', gameData);
+//         });
+//         if (!gameData) {
+//             res.status(404).json({ message: 'No Games found with this id!' });
+//             return;
+//         }
+//         res.status(200).json(gameData);        
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// });
 
 router.post('/login', async (req, res) => {
     try {
