@@ -1,27 +1,23 @@
 [
     {
-        "id": 1,
         "name": "Gabriel",
         "email": "myemail@realemail.com",
         "password": "1234password",
         "gamertag": "MrG105"
     },
     {
-        "id": 2,
         "name": "Sal",
         "email": "sal@hotmail.com",
         "password": "password12345",
         "gamertag": "Salamander1234"
     },
     {
-        "id": 3,
         "name": "Lernantino",
         "email": "lernantino@gmail.com",
         "password": "password12345",
         "gamertag": "lernatinojalapeno"
     },
     {
-        "id": 4,
         "name": "Amiko",
         "email": "amiko2k20@aol.com",
         "password": "password12345",

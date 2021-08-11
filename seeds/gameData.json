@@ -1,59 +1,49 @@
 [
     {
-        "id": 1,
         "name": "Street Fighter V",
         "boxArt": "https://www.giantbomb.com/a/uploads/scale_avatar/18/187968/2707240-rsz_15774215657_dbc508b182_b.jpg"
     },
     {
-        "id": 2,
         "name": "Guilty Gear: Strive",
         "boxArt":"https://www.giantbomb.com/a/uploads/scale_avatar/36/361609/3277315-2822407957-3hxaj.png"
 
     },
     {
-        "id": 3,
         "name": "Killer Instinct",
         "boxArt": "https://www.giantbomb.com/a/uploads/scale_avatar/8/87790/2291753-box_kig.png"
 
     },
     {
-        "id": 4,
         "name": "King of Fighters",
         "boxArt":"https://www.giantbomb.com/a/uploads/scale_avatar/8/87790/2074740-box_kofxiii.png"
 
     },
     {
-        "id": 5,
         "name": "Tekken 7",
         "boxArt": "https://www.giantbomb.com/a/uploads/scale_avatar/18/187968/2726174-b8lvzj6cqaek2kjb2ufu.jpg"
 
     },
     {
-        "id": 6,
         "name": "Mortal Kombat 11",
         "boxArt": "https://www.giantbomb.com/a/uploads/scale_avatar/8/87790/3076074-box_mk11.png"
 
     },
     {
-        "id": 7,
         "name": "Dragonball FighterZ",
         "boxArt": "https://www.giantbomb.com/a/uploads/scale_avatar/8/87790/2993180-box_dbfz.png"
 
     },
     {
-        "id": 8,
         "name": "Super Smash Bros. Ultimate",
         "boxArt": "https://www.giantbomb.com/a/uploads/scale_avatar/8/82063/3036186-9413812974-0fa98.jpg"
 
     },
     {
-        "id": 9,
         "name": "EA Sports UFC 4",
         "boxArt": "https://www.giantbomb.com/a/uploads/scale_avatar/0/3699/2996114-ea%20sports%20ufc%203.jpg"
 
     },
     {
-        "id": 10,
         "name": "Divekick",
         "boxArt":"https://www.giantbomb.com/a/uploads/scale_avatar/8/87790/2484689-box_divekick.png"
 
