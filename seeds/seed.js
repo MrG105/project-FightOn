@@ -3,6 +3,7 @@ const { User, Game, UserGames } = require('../models');
 
 const userData = require('./userData.json');
 const gameData = require('./gameData.json');
+const userGamesData = require('./userGamesData.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -13,6 +14,8 @@ const seedDatabase = async () => {
   });
 
   const games = await Game.bulkCreate(gameData);
+
+  const userGames = await UserGames.bulkCreate(userGamesData);
 
   // User Table
   //   {

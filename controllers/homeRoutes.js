@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { User, Game } = require("../models/");
 const withAuth = require('../utils/auth');
 
-
+// render main page
 router.get('/', withAuth, async (req, res) => {
   try {
       res.render('homepage', {

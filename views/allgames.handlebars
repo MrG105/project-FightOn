@@ -1,6 +1,9 @@
-{{#each games as |game|}}
-<div class="all games">
+{{#each game as |game|}}
+<div class="all-games">
    <p>{{game.name}}</p>
+   <img src="{{game.boxArt}}" alt="{{game.name}}">
+
+
    {{#if logged_in}}
    <button>Add!</button>
    {{/if}}
