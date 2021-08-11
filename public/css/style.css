@@ -1,0 +1,75 @@
+:root {
+    --primary: #d6d2d2;
+    --secondary: #323a9c;
+    --tertiary: #c6d166;
+    --dark: #0f1b07;
+    --border-radius: 0.2rem;
+}
+
+
+body {
+    background-color: var(--primary);
+    margin:0;
+    padding:0;
+    color: var(--secondary);
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight:700;
+    margin: 0;
+    color: var(--tertiary);
+    line-height: 1.25;
+    letter-spacing: 1px;
+}
+
+h2 a {
+    color: var(--primary);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+main {
+    margin: 20px auto;
+    width: 94%;
+}
+p {
+    font-size: 1rem;
+    color: var(--dark);
+}
+
+.btn {
+    font-size: 1.3rem;
+    text-decoration: none;
+    padding: 6px 5px;
+    width: 100%;
+    display: block;
+    margin: 5px 0;
+    border-radius: var(--border-radius);
+    color: var(--primary);
+    bordeR: none;
+    outline: none;
+    background-color: var(--secondary);
+}
+
+.btn:hover {
+    color: var(--primary);
+    background-color: var(--dark);    
+}
+
+.nav-item {
+    margin: 0 40px;
+}
+
+.nav-item a {
+    color: var(--primary);
+}

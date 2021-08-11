@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
       const userData = await User.findAll({
             exclude: ['password', 'email'],
             order: [['name', 'ASC']],
-            include: [{ model: Game }]
+            include: [{ all: true, nested: true }]
       });
       res.status(200).json(userData);
 
@@ -49,10 +49,11 @@ router.post('/game', async (req, res) => {
 
 router.get('/games/:id', async (req, res) => {
     try {
-        const gameData = await User.findOne( {
+        const gameData = await User.findOne(req.session.user_id, {
             where: {
-                    id: 1
-                },
+                id: req.session.user_id
+                // req.session.user_id = gameData.id,
+            },
             include: [{ all: true, nested: true }]
             
         });
@@ -94,38 +95,35 @@ router.get('/games/:id', async (req, res) => {
 //     }
 // });
 
+
+// login route
 router.post('/login', async (req, res) => {
     try {
         const userData = await User.findOne({ where: { email: req.body.email } });
-
         if (!userData) {
             res
                 .status(400)
                 .json({ message: 'Incorrect email or password, please try again' });
             return;
         }
-
         const validPassword = await userData.checkPassword(req.body.password);
-
         if (!validPassword) {
             res
                 .status(400)
                 .json({ message: 'Incorrect email or password, please try again' });
             return;
         }
-
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
-
             res.json({ user: userData, message: 'You are now logged in!' });
         });
-
     } catch (err) {
         res.status(400).json(err);
     }
 });
 
+// logout route
 router.post('/logout', (req, res) => {
     if (req.session.logged_in) {
         req.session.destroy(() => {
