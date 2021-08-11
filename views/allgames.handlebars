@@ -1,0 +1,8 @@
+{{#each games as |game|}}
+<div class="all games">
+   <p>{{game.name}}</p>
+   {{#if logged_in}}
+   <button>Add!</button>
+   {{/if}}
+</div>
+{{/each}}
