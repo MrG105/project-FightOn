@@ -1,0 +1,10 @@
+<div>
+<h1> TOP GAMES TRENDING NOW</h1>
+
+{{#each topGames as |topGame| }}
+    <div class="all-games">
+        <img src="{{topGame.boxArt}}" alt="{{topGame.name}}">
+        <h3>{{topGame.name}}</h3>
+    </div>
+{{/each}}
+</div>

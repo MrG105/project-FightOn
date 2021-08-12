@@ -44,7 +44,7 @@ router.post('/', withAuth, async (req, res) => {
 router.get('/top', async (req, res) => {
   try {
     const query = await sequelize.query(`
-      SELECT COUNT(user_id) as users, game_id, g.name, g.box_art
+      SELECT COUNT(user_id) as users, game_id, g.name, g.box_art as boxArt
       FROM user_games ug
       JOIN game g ON ug.game_id = g.id
       GROUP BY game_id, g.name, g.box_art
