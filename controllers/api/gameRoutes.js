@@ -1,7 +1,9 @@
 const router = require("express").Router();
-const  { User, Game } = require("../../models/");
+const  { User, Game, UserGames } = require("../../models/");
 const withAuth = require('../../utils/auth');
 const axios = require('axios')
+// const sequelize = require('sequelize')
+const sequelize = require('../../config/connection');
 
 // // find all games
 router.get('/', async (req, res) => {
@@ -19,7 +21,7 @@ router.get('/', async (req, res) => {
 });
 
 // Add a new Game
-router.post('/', async, withAuth, (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     try {
       const url = `http://www.giantbomb.com/api/search?api_key=${process.env.API_KEY}&format=json&query=${encodeURIComponent(req.body.gameName)}&resources=game`
       const gameResponse = await axios.get(url)
@@ -36,6 +38,24 @@ router.post('/', async, withAuth, (req, res) => {
     }
 });
 
+
+// top 3 games
+
+router.get('/top', async (req, res) => {
+  try {
+    const query = await sequelize.query(`
+      SELECT COUNT(user_id) as users, game_id, g.name, g.box_art as boxArt
+      FROM user_games ug
+      JOIN game g ON ug.game_id = g.id
+      GROUP BY game_id, g.name, g.box_art
+      ORDER BY users desc
+      LIMIT 3
+    `)
+    res.status(200).json(query[0]);
+  } catch (err) {
+    res.status(400).json(err);
+  } 
+})
 
 
 module.exports = router;
