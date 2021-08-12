@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FIGHT ON!</title>
-  <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courgette&display=swap">
 </head>
 
 <body>
@@ -16,6 +16,7 @@
         <span role="img" aria-label="money">💸</span>
         <a href="/">FIGHT ON!</a>
       </h1>
+<<<<<<< HEAD
 <nav>
 <a class = 'btn' href="/">Home</a>
 <a class = 'btn' href="/api/games">Games</a>
@@ -30,10 +31,27 @@
 <main class="container container-fluid mt-5">
     {{{ body }}}
 </main>
+=======
+      <nav>
+        <button class='btn' href="/homepage">Home</button>
+        <button class='btn' href="/api/games">Games</button>
+        <button class='btn' href="/dashboard">Dashboard</button>
+        <button class='btn' href="/login">Login</button>
+        {{#if logged_in}}
+        <a> href </a>
+        <button id='logout-btn'>Logout</button>
+        {{/if}}
+      </nav>
+    </header>
+    <main class="container container-fluid mt-5">
+      {{{ body }}}
+    </main>
+>>>>>>> 689b6db1432909d12bb73338ebfe831c9617397c
 
-{{#if logged_in}}
-<script src="/js/logout.js"></script>
-{{/if}}
+    {{#if logged_in}}
+    <script src="/public/js/logout.js"></script>
+    {{/if}}
 </body>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
 </html>
