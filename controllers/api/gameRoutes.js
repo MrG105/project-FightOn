@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const  { User, Game } = require("../../models/");
 const withAuth = require('../../utils/auth');
-
+const axios = require('axios')
 
 // // find all games
 router.get('/', async (req, res) => {
@@ -19,14 +19,18 @@ router.get('/', async (req, res) => {
 });
 
 // Add a new Game
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async, withAuth, (req, res) => {
     try {
+      const url = `http://www.giantbomb.com/api/search?api_key=${process.env.API_KEY}&format=json&query=${encodeURIComponent(req.body.gameName)}&resources=game`
+      const gameResponse = await axios.get(url)
+      const boxArt = gameResponse.data.results[0].image.thumb_url
+      
       const newGame = await Game.create({
-        ...req.body,
-        user_id: req.session.user_id,
+        name: req.body.gameName,
+        boxArt: boxArt,
       });
   
-      res.status(200).json(newGame);
+      res.status(201).json();
     } catch (err) {
       res.status(400).json(err);
     }
