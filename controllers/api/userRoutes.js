@@ -71,33 +71,21 @@ router.get('/games/:id', async (req, res) => {
     }
 });
 
+router.get('/games/', async (req, res) => {
+    try {
+        const gameData = await User.findAll({
+            include: [{ all: true, nested: true }]
 
-// router.get('/games/:id', async (req, res) => {
-//     try {
-//         const gameData = await Game.findAll({
-//             where: {
-//                 user_id: 1
-//             },
-//             include: {
-//                 // model: UserGames,
-//                 include: [{model: User, through: UserGames}]
-
-//             }
-
-//             // include: [
-//             //     Game, User
-//             // ]
-//             // console.log('!.!.', gameData);
-//         });
-//         if (!gameData) {
-//             res.status(404).json({ message: 'No Games found with this id!' });
-//             return;
-//         }
-//         res.status(200).json(gameData);        
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
+        });
+        if (!gameData) {
+            res.status(404).json({ message: 'No Games found with this id!' });
+            return;
+        }
+        res.status(200).json(gameData);        
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
 
 // login route
