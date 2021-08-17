@@ -16,11 +16,10 @@
         <span role="img" aria-label="money">💸</span>
         <a href="/">FIGHT ON!</a>
       </h1>
-<<<<<<< HEAD
 <nav>
 <a class = 'btn' href="/">Home</a>
 <a class = 'btn' href="/api/games">Games</a>
-<a class = 'btn' href="/api/{{user.id}}">Dashboard</a>
+<a class = 'btn' href="/dashboard">Dashboard</a>
 {{#if logged_in}}
 <a class = 'btn' >Logout</a>
 {{else}}
@@ -31,22 +30,6 @@
 <main class="container container-fluid mt-5">
     {{{ body }}}
 </main>
-=======
-      <nav>
-        <a class='btn' href="/homepage">Home</a>
-        <a class='btn' href="/api/games">Games</a>
-        <a class='btn' href="/views/dashboard">Dashboard</a>
-        <a class='btn' href="/login">Login</a>
-        {{#if logged_in}}
-        <a> href </a>
-        <button id='logout-btn'>Logout</button>
-        {{/if}}
-      </nav>
-    </header>
-    <main class="container container-fluid mt-5">
-      {{{ body }}}
-    </main>
->>>>>>> 689b6db1432909d12bb73338ebfe831c9617397c
 
     {{#if logged_in}}
     <script src="/public/js/logout.js"></script>
