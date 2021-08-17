@@ -1,16 +1,11 @@
-<div class="game-dashes" id="gamedash-">
-      <div class="col-auto">
-    <h1>Welcome back {{name}}!</h1>
-  </div>
 
-<div>
-  {{#if game}}
-    <h2>{{name}} {{boxArt}}</h2>
-  {{/if}}
+
+<div class="game-dashes" id="gamedash-">
+  <div class="col-auto">
+    <h1>Welcome back {{name}}!</h1>
+    <h1>{{email}}</h1>
+    <h1>{{gamertag}}</h1>
   </div>
-  <ul class="user_list">
-  {{#each user}}
-    <li>{{this}}</li>
-  {{/each}}
-</ul>
 </div>
+
+<script src="/js/login.js"></script>

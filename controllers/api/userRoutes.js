@@ -7,11 +7,15 @@ router.get('/', async (req, res) => {
     try {
       // Get all users, sorted by name
       const userData = await User.findAll({
-            exclude: ['password', 'email'],
-            order: [['name', 'ASC']],
-            include: [{ all: true, nested: true }]
+         attributes: {  exclude: ['password', 'email'],}
+            // order: [['name', 'ASC']],
       });
-      res.status(200).json(userData);
+        
+        const users = userData.map((user) => user.get({ plain: true})); 
+
+       res.render('users', { users }) 
+
+    //   res.status(200).json(userData);
 
     } catch (err) {
         res.status(500).json(err);
