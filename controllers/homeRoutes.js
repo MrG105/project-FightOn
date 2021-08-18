@@ -4,7 +4,7 @@ const withAuth = require('../utils/auth');
 const sequelize = require('../config/connection');
 
 // render main page
-router.get('/', withAuth, async (req, res) => {
+router.get('/',  async (req, res) => {
   try {
     let topGames = await sequelize.query(`
     SELECT COUNT(user_id) as users, game_id, g.name, g.box_art as boxArt
